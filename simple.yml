@@ -1,0 +1,4 @@
+metafig:
+  build: .
+
+all: metafig

@@ -1,0 +1,29 @@
+www:
+  build: frontend
+  link:
+    - db
+    - cache
+  volumes_from:
+    - assets
+
+assets:
+  image: busybox
+  command: true
+  volumes:
+    - /assets
+
+api:
+  build: backend
+  link:
+    - db
+    - cache
+
+db:
+  image: postgresql
+
+cache:
+  image: redis
+
+devfull: www assets api db cache
+devwww: www assets db cache
+prod: www assets api
